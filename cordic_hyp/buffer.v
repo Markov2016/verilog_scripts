@@ -28,7 +28,6 @@ module buffer_ROM(clk,reset,wen,index_qua,index_cor,Q,XM0,YM0,XR0,YR0,index_cor0
     end 
   end
   
-  
 endmodule
 
 module buffer_cordic_cell(clk,reset,index_cor,index_cor_,XR__,YR__,XR_,YR_);

@@ -11,7 +11,7 @@ module testbench();
   assign D = LUT[index_wri];
   CORDIC_16_pipe d1(clk,reset,cen,wen,index_wri,D,fcw,offset,sin_amp,wen_out);
   initial begin
-    $readmemh("./core/LUT_11_5.txt",LUT);
+    $readmemh("F:/verilog_scripts/cordic_pipe/LUT_11_5.txt",LUT);
     clk = 1;reset = 1;cen = 0;wen = 1;writed = 0;reseted = 0;
     index_wri = 6'b111111;
     fcw = 16'h0111;
@@ -48,7 +48,7 @@ module testbench();
     end
     else if(writed) begin
       reset <= 1;
-      if (i > 0) begin
+      if (i > 0 && wen_out >0) begin
 		    i <= i+1;
 		    $fdisplay(w_file,"%h",sin_amp);  
 		    if (i>=4096) begin

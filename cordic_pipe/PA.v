@@ -21,21 +21,22 @@ module PA4(clk,reset,fcw,init,carry_in,carry_out,phase);
   end
 endmodule
 
-module PA16(clk,reset,fcw,init,phase,wen,trans3);
+module PA16(clk,reset,fcw,init,phase,wen,wen_out);
   input clk,reset,wen;
   input [15:0] fcw,init;
   output [15:0] phase;
-  output trans3;
+  output wen_out;
 
   
   wire [3:0] carry;
   wire [3:0] temp_pre [0:9];
   wire [3:0] temp_pos [0:5];
   wire trans0,trans1,trans2,trans3;
-  D_trigger1 d0(clk,reset,wen ,trans0);
-  D_trigger1 d1(clk,reset,trans0,trans1);
-  D_trigger1 d2(clk,reset,trans1,trans2);
-  D_trigger1 d3(clk,reset,trans2,trans3);
+  D_trigger1 d0(clk,1'b1,wen ,trans0);
+  D_trigger1 d1(clk,1'b1,trans0,trans1);
+  D_trigger1 d2(clk,1'b1,trans1,trans2);
+  D_trigger1 d3(clk,1'b1,trans2,trans3);
+  D_trigger1 d4(clk,1'b1,trans3,wen_out);
   
   // 0:3 adder
   D_trigger4 D00(clk,reset,fcw[3:0]   ,temp_pre[0]);

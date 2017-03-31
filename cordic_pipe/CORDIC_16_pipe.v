@@ -14,7 +14,7 @@ module CORDIC_16_pipe(clk,reset,cen,wen,index_wri,D,fcw,offset,sin_amp,wen7);
 
   PA16 pa(clk,reset,fcw,offset,phase,wen,wen_trans);
   phase_compression_13 pc(phase,index_qua,index_rea,index_cor);
-  PAC pac(clk,reset,cen,wen_trans,index_qua,index_rea,index_cor,sin_amp,wen7,index_wri,D);
+  PAC pac(clk,reset,cen,wen,wen_trans,index_qua,index_rea,index_cor,sin_amp,wen7,index_wri,D);
   
 endmodule
 

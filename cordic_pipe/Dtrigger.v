@@ -30,10 +30,10 @@ end
 
 endmodule
 
-module D_trigger11(clk,reset,D,Q);
+module D_trigger10(clk,reset,D,Q);
 input clk,reset;
-input [10:0] D;
-output reg [10:0] Q;
+input [9:0] D;
+output reg [9:0] Q;
 
 always@(posedge clk or negedge reset) begin
   if(~reset) begin
