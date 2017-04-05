@@ -3,7 +3,7 @@ input clk,reset;
 input  D;
 output reg  Q;
 
-always@(posedge clk or negedge reset) begin
+always@(posedge clk) begin
   if(~reset) begin
     Q <= 1'b0;
   end
@@ -19,7 +19,7 @@ input clk,reset;
 input [3:0] D;
 output reg [3:0] Q;
 
-always@(posedge clk or negedge reset) begin
+always@(posedge clk) begin
   if(~reset) begin
     Q <= 4'b0;
   end
@@ -35,7 +35,7 @@ input clk,reset;
 input [9:0] D;
 output reg [9:0] Q;
 
-always@(posedge clk or negedge reset) begin
+always@(posedge clk) begin
   if(~reset) begin
     Q <= 10'b0;
   end
@@ -51,7 +51,7 @@ input clk,reset;
 input [15:0] D;
 output reg [15:0] Q;
 
-always@(posedge clk or negedge reset) begin
+always@(posedge clk) begin
   if(~reset) begin
     Q <= 16'b0;
   end

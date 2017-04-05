@@ -18,12 +18,12 @@ module mirro(clk,reset,XM,YM,index_qua,wen,D,sin_amp,wen_out);
   
   assign temp3[15:0] = (index_qua[1]^index_qua[2])?temp2:temp1;
 
-  always@(posedge clk or negedge reset)begin
+  always@(posedge clk)begin
     if(~reset) begin
       sin_amp <= 16'b0;
     end
     else begin
-      sin_amp <= (wen)?temp3:16'b0;
+      sin_amp <= temp3;
     end
   end
 endmodule

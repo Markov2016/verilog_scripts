@@ -1,5 +1,5 @@
-module PAC(clk,reset,cen,wen_in,index_qua,index_rea,index_cor,sin_amp,wen_out,index_wri,D);
-input clk,reset,cen,wen_in;
+module PAC(clk,reset,cen,wen,wen_in,index_qua,index_rea,index_cor,sin_amp,wen_out,index_wri,D);
+input clk,reset,cen,wen,wen_in;
 input [2:0] index_qua;
 input [5:0] index_wri,index_rea;
 input [6:0] index_cor;
@@ -22,9 +22,9 @@ wire [7:0] wen_trans;
 
 // delay line
 
-MUX_2_6 m0(index_rea,index_wri,wen_in,A);
+MUX_2_6 m0(index_rea,index_wri,wen,A);
 
-ROM_64_48 R0(clk,1'b1,cen,wen_in,A,D,Q);
+ROM_64_48 R0(clk,1'b1,cen,wen,A,D,Q);
 
 buffer_ROM b_rom(clk,reset,wen_in,index_qua,index_cor,Q,XM0,YM0,XR0,YR0,index_cor0,wen_trans[0]);
 

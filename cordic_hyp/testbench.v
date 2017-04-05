@@ -58,24 +58,4 @@ module testbench();
       end
     end
   end
-  /*
-  always@(posedge wen) begin
-    if( i == 16'b0) begin
-      i = 16'b1;
-    end
-  end
-  
-  integer w_file;
-  initial begin  w_file = $fopen("data_out.txt");end
-  always@(negedge clk) begin
-  if (i > 0) begin
-    $fdisplay(w_file,"%h",sin_amp);
-    i <= i+1;
-    if (i>4096) begin
-      $stop;
-    end
-  end
-  
-  end
-  */
 endmodule

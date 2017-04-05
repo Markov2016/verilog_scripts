@@ -12,8 +12,8 @@ module PA16_(clk,reset,wen_in,fcw,init,phase,wen_out);
     else
       phase <= phase_wire;
   end
-  D_trigger1 d0(clk,1'b1,wen_in,wen_out);
-  
+  //D_trigger1 d0(clk,1'b1,wen_in,wen_out);
+  assign wen_out = wen_in;
 endmodule
 
 

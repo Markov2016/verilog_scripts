@@ -10,7 +10,7 @@ module buffer_ROM(clk,reset,wen,index_qua,index_cor,Q,XM0,YM0,XR0,YR0,index_cor0
 
   D_trigger1 d0(clk,1'b1,wen,wen_trans0);
   
-  always@(posedge clk or negedge  reset)begin
+  always@(posedge clk)begin
     if(~reset) begin
       XM0 <= 16'b0;YM0 <= 16'b0;XR0 <= 16'b0;YR0 <= 16'b0;
       index_cor0 <= 10'b0;
